@@ -76,23 +76,28 @@ while gameloop:
         while gaming:
             enteringBetAmount = True
             while enteringBetAmount:
-                bet_amount = int(input(f"Bet amount? (current bal: {balance} | 'Back' to return): "))
-
-                if bet_amount > balance:
-                    print("\nCan't bet more than you have")
+                bet_amount = input(f"Bet amount? (current bal: {balance} | 'Back' to return): ")
                 
-                if bet_amount < balance:
-                    enteringBetAmount
-                    balance += gameFunction(bet_amount, balance)
-                    updateBalance(balance, doc_ref)
-
-                else:
+                if bet_amount.lower() == 'back':
                     print("\nGoing back to menu\n")
                     print("------------------\n")
                     introduction()
                     gaming = False
-            
-            return balance
+                    enteringBetAmount = False
+                else:
+                    try:
+                        bet_amount = int(bet_amount)
+                        if bet_amount > balance:
+                            print("\nCan't bet more than you have")
+                        else:
+                            balance += gameFunction(bet_amount, balance)
+                            updateBalance(balance, doc_ref)
+                            enteringBetAmount = False
+                    except ValueError:
+                        print("Invalid input. Please enter a valid number or 'Back' to return to the menu.")
+                    
+        return balance
+
     
 
     if action.lower() == "blackjack":
