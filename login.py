@@ -10,7 +10,15 @@ def login(db):
         
         if action == "1":
             try:
-                accountName = input("Account name: ")
+                while True:
+                    accountName = input("Account name: ")
+                    doc_ref = db.collection("Accounts").document(accountName)
+
+                    if doc_ref.get().exists:
+                        print("Account name already exists. Please choose another one.")
+                    else:
+                        break
+
                 accountPassword = input("Password (Don't choose usual password, I have no security): ")
                 new_doc_ref = db.collection("Accounts").document(accountName).set({
                     "Password": accountPassword,
@@ -29,9 +37,9 @@ def login(db):
 
             if not doc_ref.get().exists:
                 print("\nAccount not found")
-                return None, None  # Return None, None when the account is not found
+                return None, None
 
-            storedPassword = doc_ref.get().to_dict().get("Password")  # Use .get() to avoid KeyError
+            storedPassword = doc_ref.get().to_dict().get("Password")
             enteredPassword = input("Enter Password: ")
 
             if enteredPassword == storedPassword:
@@ -39,7 +47,7 @@ def login(db):
                 return doc_ref, accountName
             else:
                 print("Incorrect password.")
-                return None, None  # Return None, None if the password is incorrect
+                return None, None
             
         elif action == "3":
             accountsRef = db.collection("Accounts")

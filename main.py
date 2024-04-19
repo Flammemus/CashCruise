@@ -99,6 +99,7 @@ while gameloop:
                         print("Invalid input. Please enter a valid number or 'Back' to return to the menu.")
                     
         return balance
+    
 
     if action.lower() == "blackjack":
         balance = playGame("Blackjack", blackJack, balance)
