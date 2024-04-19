@@ -62,6 +62,8 @@ def introduction():
         print("-", i)
     print("\nType the name of a game to play it!\n")
 
+    print(f"Your wallet: {balance}\n")
+
 tprint("Cash Cruise!")
 print("A p2w service!\n")
 introduction()
@@ -88,7 +90,7 @@ while gameloop:
                     try:
                         bet_amount = int(bet_amount)
                         if bet_amount > balance:
-                            print("\nCan't bet more than you have")
+                            print("\nCan't bet more than you have\n")
                         else:
                             balance += gameFunction(bet_amount, balance)
                             updateBalance(balance, doc_ref)
@@ -111,6 +113,7 @@ while gameloop:
 
     elif action.lower() == "save":
         updateBalance(balance, doc_ref)
+        print("Saved successfully")
 
     elif action.lower() == "bal":
         print(f"Your balance: {balance}")

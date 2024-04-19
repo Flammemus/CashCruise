@@ -77,10 +77,13 @@ def blackJack(betAmount, balance):
 
     def showDealerHandsMin1():
         print("\n--------------------")
+        time.sleep(0.15)
         print("\nDealer's hand:\n")
+        time.sleep(0.15)
 
         for i in range(len(dealerHand) - 1):
             print(dealerHand[i])
+            time.sleep(0.15)
 
     dealerHandInt = []
     playerHandInt = []
@@ -114,6 +117,8 @@ def blackJack(betAmount, balance):
                 return result("won", betAmount, balance)
 
         if action.lower() == "stand":
+
+            showDealerHands()
 
             while sum(dealerHandInt) < 17:
                 getCard(dealerHand, dealerHandInt, 1)
