@@ -78,7 +78,7 @@ while gameloop:
         while gaming:
             enteringBetAmount = True
             while enteringBetAmount:
-                bet_amount = input(f"Bet amount? (current bal: {balance} | 'Back' to return): ")
+                bet_amount = input(f"\nBet amount? (current bal: {balance} | 'Back' to return): ")
                 
                 if bet_amount.lower() == 'back':
                     print("\nGoing back to menu\n")
@@ -100,8 +100,6 @@ while gameloop:
                     
         return balance
 
-    
-
     if action.lower() == "blackjack":
         balance = playGame("Blackjack", blackJack, balance)
         
@@ -116,7 +114,7 @@ while gameloop:
         print("Saved successfully")
 
     elif action.lower() == "bal":
-        print(f"Your balance: {balance}")
+        print(f"\nYour balance: {balance}\n")
 
     elif action.lower() == "resetbal":
         balance = 0

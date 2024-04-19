@@ -23,18 +23,14 @@ def blackJack(betAmount, balance):
         for card in drawn_cards:
             deck.remove(card)
             rank = int(card.split()[0])
-            if rank == 11:  # If drawn card is an ace
-                whomHandInt.append(11)  # Treat ace as 11 initially
-            else:
-                whomHandInt.append(rank)
+            whomHandInt.append(rank)
 
-        # Dynamically adjust ace value if hand total exceeds 21
-        num_aces = whomHandInt.count(11)  # Count the number of aces in the hand
+        num_aces = whomHandInt.count(11)
         while sum(whomHandInt) > 21 and num_aces > 0:
             for i in range(len(whomHandInt)):
-                if whomHandInt[i] == 11:  # Check if the card is an ace
-                    whomHandInt[i] = 1  # Treat ace as 1
-                    num_aces -= 1  # Reduce the count of aces
+                if whomHandInt[i] == 11:
+                    whomHandInt[i] = 1
+                    num_aces -= 1
                     break
 
     def result(winner, betAmount, balance):
@@ -135,3 +131,5 @@ def blackJack(betAmount, balance):
                 return result("won", betAmount, balance)
             elif sum(playerHandInt) < sum(dealerHandInt):
                 return result("lost", betAmount, balance)
+            
+# blackJack(100, 10000)
