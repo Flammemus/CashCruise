@@ -43,8 +43,9 @@ else:
 
 games = ["blackjack", "roulette", "coinflip"]
 commands = ["bal          = Display current balance",
+            "'game' rules = Display rules for selected game\n",
             "save         = Save progress to server",
-            "'game' rules = Display rules for selected game"]
+            "exit         = Logs out of account and stops program"]
     
 balance = getBalance(doc_ref)
 
@@ -129,3 +130,6 @@ while gameloop:
     
     elif action.lower() == "blackjack rules":
         blackjackRules()
+    
+    elif action.lower() == "exit":
+        break
