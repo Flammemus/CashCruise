@@ -15,3 +15,13 @@ def coinflipRules():
     print("2. The bet amount is deducted from your balance before the coin is flipped.")
     print("3. If you guess correctly, you win an amount equal to your bet.")
     print("4. If you guess incorrectly, you lose the amount you bet.\n")
+
+def slotsRules():
+    print("\nSlots Rules:\n")
+    print("1. In the Slots game, three cylinders spin.")
+    print("2. If all three cylinders stop with the same face showing, you win.")
+    print("3. There are four different faces on the cylinders, each with different probabilities.")
+    print("4. If you get '- - -', you win 2 times your bet. (25%)")
+    print("5. If you get '+ + +', you win 3 times your bet. (15%)")
+    print("6. If you get 'x x x', you win 5 times your bet. (4%)")
+    print("7. If you get '7 7 7', you win 10 times your bet. (1%\n")
