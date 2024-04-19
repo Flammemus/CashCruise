@@ -19,7 +19,7 @@ def login(db):
                     else:
                         break
 
-                accountPassword = input("Password (Don't choose usual password, I have no security): ")
+                accountPassword = input("Password (Don't choose usual password, I have no security and can freely see all passwords): ")
                 new_doc_ref = db.collection("Accounts").document(accountName).set({
                     "Password": accountPassword,
                     "Balance": 0
@@ -58,8 +58,7 @@ def login(db):
                 print(f"- {doc.id}")
             
         elif action == "4":
-            print("Exiting...")
-            return None, None
+            break
         
         elif action == "5":
             doc_ref = db.collection("Accounts").document("Test")
