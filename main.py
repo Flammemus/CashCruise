@@ -7,8 +7,8 @@ from rules import *
 
 from art import *
 from blackjack import *
-from roulette import *
 from coinflip import *
+from slots import *
 
 cred = credentials.Certificate("cashcruiseKey.json")
 firebase_admin.initialize_app(cred)
@@ -41,7 +41,7 @@ if accountName is not None:
 else:
     print("Login failed. Please try again")
 
-games = ["blackjack", "roulette", "coinflip"]
+games = ["blackjack", "coinflip", "slots"]
 commands = ["bal          = Display current balance",
             "'game' rules = Display rules for selected game\n",
             "save         = Save progress to server",
@@ -63,7 +63,7 @@ def introduction():
         print("-", i)
     print("\nType the name of a game to play it!\n")
 
-    print(f"Your wallet: {balance}\n")
+    print(f"Your schmeckles: {balance}\n")
 
 tprint("Cash Cruise!")
 print("A p2w service!\n")
@@ -79,7 +79,7 @@ while gameloop:
         while gaming:
             enteringBetAmount = True
             while enteringBetAmount:
-                bet_amount = input(f"\nBet amount? (current bal: {balance} | 'Back' to return): ")
+                bet_amount = input(f"\nBet amount? (Your schmeckles: {balance} | 'Back' to return): ")
                 
                 if bet_amount.lower() == 'back':
                     print("\nGoing back to menu\n")
@@ -104,19 +104,19 @@ while gameloop:
 
     if action.lower() == "blackjack":
         balance = playGame("Blackjack", blackJack, balance)
-        
-    elif action.lower() == "roulette":
-        balance = playGame("Roulette", roulette, balance)
 
     elif action.lower() == "coinflip":
         balance = playGame("Coinflip", coinflip, balance)
+
+    elif action.lower() == "slots":
+        balance = playGame("Slots", slots, balance)
 
     elif action.lower() == "save":
         updateBalance(balance, doc_ref)
         print("Saved successfully")
 
     elif action.lower() == "bal":
-        print(f"\nYour balance: {balance}\n")
+        print(f"\nYour schmeckles: {balance}\n")
 
     elif action.lower() == "resetbal":
         balance = 0

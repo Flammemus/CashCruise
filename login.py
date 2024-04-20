@@ -22,7 +22,7 @@ def login(db):
                 accountPassword = input("Password (Don't choose usual password, I have no security and can freely see all passwords): ")
                 new_doc_ref = db.collection("Accounts").document(accountName).set({
                     "Password": accountPassword,
-                    "Balance": 0
+                    "Schmeckles": 0
                 })
 
                 print("Account created successfully")

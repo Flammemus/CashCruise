@@ -34,13 +34,13 @@ def blackJack(betAmount, balance):
                     break
 
     def result(winner, betAmount, balance):
-        print(f"\n@*- You {winner} {betAmount}! -*@\n")
+        print(f"\n@*- You {winner} {betAmount} schmeckles! -*@\n")
 
         if winner == "won":
             return betAmount
         elif winner == "lost":
             return -betAmount
-        elif winner == "you win with blackjack":
+        elif winner == "got a blackjack! You won":
             return betAmount / 2
         else:
             return 0
@@ -92,7 +92,7 @@ def blackJack(betAmount, balance):
 
     if sum(playerHandInt) == 21:
         if len(playerHandInt) == 2:
-            return result("win with blackjack", betAmount, balance)
+            return result("got a blackjack! You won", betAmount, balance)
 
     gaming = True
     while gaming:

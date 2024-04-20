@@ -41,8 +41,8 @@ def coinflip(betAmount, balance):
             print("\nInvalid choice, try again\n")
 
         if action.lower() == result:
-            print(f"\n@*- You won {betAmount}! -*@")
+            print(f"\n@*- You won {betAmount} schmeckles! -*@")
             return betAmount
         if action.lower() != result:
-            print(f"\n@*- You lost {betAmount}! -*@")
+            print(f"\n@*- You lost {betAmount} schmeckles! -*@")
             return -betAmount
