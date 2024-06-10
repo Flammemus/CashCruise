@@ -20,3 +20,5 @@ def roulette(betAmount, balance):
         action = input(": ")
 
     print(winningBet)
+
+# roulette(100, 10000)

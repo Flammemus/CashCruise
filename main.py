@@ -18,7 +18,7 @@ def getBalance(doc_ref):
     if doc_ref is not None:
         balance_doc = doc_ref.get()
         if balance_doc.exists:
-            return balance_doc.to_dict().get("Balance")
+            return balance_doc.to_dict().get("Schmeckles")
         else:
             print("Balance document does not exist.")
             return None
@@ -29,7 +29,7 @@ def getBalance(doc_ref):
     
 def updateBalance(newBalance, doc_ref):
     if doc_ref is not None:
-        doc_ref.update({"Balance": newBalance})
+        doc_ref.update({"Schmeckles": newBalance})
 
     else:
         print("No account logged in.")
@@ -51,6 +51,7 @@ balance = getBalance(doc_ref)
 
 if balance is None:
     balance = 100
+    updateBalance(balance, doc_ref)
 
 def introduction():
     print("Here are the available commands:\n")
@@ -132,4 +133,5 @@ while gameloop:
         blackjackRules()
     
     elif action.lower() == "exit":
+        updateBalance(balance, doc_ref)
         break

@@ -51,3 +51,5 @@ def slots(betAmount, balance):
     else:
         print(f"\n@*- You lost {betAmount} schmeckles! -*@")
         return -betAmount
+    
+# slots(50, 500)

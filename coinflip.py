@@ -46,3 +46,5 @@ def coinflip(betAmount, balance):
         if action.lower() != result:
             print(f"\n@*- You lost {betAmount} schmeckles! -*@")
             return -betAmount
+        
+# coinflip(100, 1000)
