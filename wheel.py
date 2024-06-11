@@ -34,4 +34,4 @@ def wheel(betAmount, balance):
     if middleNumbers[-1] == "x":
         print("BONUS!")
 
-# wheel(500, 1000)
+wheel(500, 1000)

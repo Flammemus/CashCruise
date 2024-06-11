@@ -26,7 +26,7 @@ def getBalance(doc_ref):
         print("No account logged in.")
         doc_ref, accountName = login(db)
         return None
-    
+
 def updateBalance(newBalance, doc_ref):
     if doc_ref is not None:
         doc_ref.update({"Schmeckles": newBalance})
